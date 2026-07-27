@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --lime: #C6F135;
+  --violet: #6366F1;
+  --violet-dark: #4F46E5;
+  --ink: #0a0a0a;
+  --surface: #111111;
+  --surface-light: #1a1a1a;
+  --steel: #8a8a8a;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--ink);
+  color: white;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-mono {
+  font-family: 'Space Grotesk', monospace;
+}
+
+/* ═══════════════════════════════════════════
+   ORBES ANIMÉS — Background mesh glow
+   ═══════════════════════════════════════════ */
+.mesh-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: float 20s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(198,241,53,0.3), transparent 70%);
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(99,102,241,0.3), transparent 70%);
+  top: 40%;
+  right: -5%;
+  animation-delay: -7s;
+}
+
+.orb-3 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(198,241,53,0.15), transparent 70%);
+  bottom: -5%;
+  left: 30%;
+  animation-delay: -14s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS FADE-UP
+   ═══════════════════════════════════════════ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fadeUp 0.8s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fadeUp 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-up-delay-3 {
+  animation: fadeUp 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.animate-fade-up-delay-4 {
+  animation: fadeUp 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS SUPPLÉMENTAIRES FITGUIDE
+   ═══════════════════════════════════════════ */
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(198, 241, 53, 0.2); 
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(198, 241, 53, 0.4); 
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* ═══════════════════════════════════════════
+   SCROLLBAR PERSONNALISÉE
+   ═══════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lime);
+}
+
+/* ═══════════════════════════════════════════
+   SÉLECTION
+   ═══════════════════════════════════════════ */
+::selection {
+  background: rgba(198, 241, 53, 0.3);
+  color: white;
+}
+
+/* ═══════════════════════════════════════════
+   UTILITAIRES CUSTOM FITGUIDE
+   ═══════════════════════════════════════════ */
+@layer utilities {
+  .text-gradient-lime {
+    background: linear-gradient(135deg, #C6F135 0%, #a3d12a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-violet {
+    background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-violet {
+    background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+  }
+  
+  .bg-gradient-dark {
+    background: linear-gradient(180deg, #111111 0%, #0a0a0a 100%);
+  }
+  
+  .border-glow {
+    box-shadow: 0 0 0 1px rgba(198, 241, 53, 0.1), 
+                0 0 20px rgba(198, 241, 53, 0.05);
+  }
+  
+  .phone-frame {
+    background: #1a1a1a;
+    border-radius: 2.5rem;
+    padding: 0.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+  
+  .phone-frame:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(198, 241, 53, 0.2),
+                0 0 30px rgba(198, 241, 53, 0.1);
+  }
+  
+  .glass-dark {
+    background: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  
+  .glass-violet {
+    background: rgba(99, 102, 241, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE TYPOGRAPHIE
+   ═══════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .orb-1 { width: 200px; height: 200px; }
+  .orb-2 { width: 150px; height: 150px; }
+  .orb-3 { width: 120px; height: 120px; }
+}
