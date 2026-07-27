@@ -1,10 +1,7 @@
 import { Resend } from 'resend';
 
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const SENDER_EMAIL ='Sirvya <support@devunivers.com>';
-const CONTACT_RECEIVER_EMAIL ='support@devunivers.com';
-
-const resend = new Resend(RESEND_API_KEY);
+const SENDER_EMAIL = 'Sirvya <support@devunivers.com>';
+const CONTACT_RECEIVER_EMAIL = 'support@devunivers.com';
 
 function buildContactEmailHtml({ name, email, subject, message }) {
   return `
@@ -47,6 +44,16 @@ function buildContactEmailHtml({ name, email, subject, message }) {
 
 export async function POST(request) {
   try {
+    if (!process.env.RESEND_API_KEY) {
+      console.error('❌ RESEND_API_KEY manquante dans les variables d\'environnement');
+      return Response.json(
+        { error: "Configuration serveur manquante." },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
     const body = await request.json();
     const { name, email, subject, message } = body || {};
 
