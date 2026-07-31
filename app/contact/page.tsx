@@ -255,6 +255,21 @@ export default function AboutPage() {
           </Reveal>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+            <TeamCard name="Mouhsin Kamal" role="Founder & CEO" photo="/kamal.png" delay={0} />
+            <TeamCard name="Mehdi Boudrna" role="CTO" photo="/mehdi.png" delay={100} />
+            <TeamCard name="ANAS GANA" role="Software Engineer" photo="/profile.png" delay={200} />
+            <TeamCard name="Aicha Akouchtah" role="IT support" photo="/team/sophie-dubois.jpg" delay={300} />
+          </div>
+        </div>
+      </section>
+       <section className="py-24 bg-[#0a0a0a]">
+        <div className="max-w-5xl mx-auto px-6">
+          <Reveal className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-black mb-4">Managers</h2>
+            <p className="text-[#8a8a8a] max-w-lg mx-auto">Help you anytime</p>
+          </Reveal>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
             <TeamCard name="Alexandre Roy" role="Founder & CEO" photo="/team/alexandre-roy.jpg" delay={0} />
             <TeamCard name="Mei Lin" role="Lead Designer" photo="/team/mei-lin.jpg" delay={100} />
             <TeamCard name="ANAS GANA" role="Software Engenier" photo="/profile.png" delay={200} />

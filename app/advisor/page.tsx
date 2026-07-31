@@ -506,18 +506,25 @@ export default function AdvisorPage() {
               Rejoignez les 850+ salles déjà présentes sur SIRVYA Advisor. Création de profil en quelques minutes, gratuite pour commencer.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <button
-                type="button"
-                className="bg-[#C6F135] text-[#0a0a0a] px-10 py-4 rounded-full font-semibold hover:scale-105 transition-transform"
-              >
-                Créer mon profil
-              </button>
-              <button
-                type="button"
-                className="border border-white/30 text-white px-10 py-4 rounded-full font-semibold hover:bg-white/10 transition-colors"
-              >
-                Nous contacter
-              </button>
+              <div className="flex flex-wrap justify-center gap-4">
+  <a
+    href="https://fitlek-advisor.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-[#C6F135] text-[#0a0a0a] px-10 py-4 rounded-full font-semibold hover:scale-105 transition-transform"
+  >
+    Créer mon profil
+  </a>
+
+  <a
+    href="./contact"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="border border-white/30 text-white px-10 py-4 rounded-full font-semibold hover:bg-white/10 transition-colors"
+  >
+    Nous contacter
+  </a>
+</div>
             </div>
           </Reveal>
         </div>
